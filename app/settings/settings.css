@@ -1,4 +1,232 @@
 /* General layout */
+/* Default to dark theme (fallback) */
+body {
+  background-color: #121212;
+  color: #e0e0e0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Light theme styles */
+body.light-theme {
+  background-color: #ffffff;
+  color: #121212;
+}
+
+body.light-theme .settings-container {
+  background-color: #f5f5f5;
+}
+
+body.light-theme .settings-sidebar {
+  background-color: #f0f0f0;
+  border-right: 1px solid #ccc;
+}
+
+body.light-theme .settings-content {
+  background-color: #fafafa;
+}
+
+body.light-theme .settings-button {
+  color: #121212;
+}
+
+body.light-theme .settings-button.active {
+  background-color: #ccc;
+  color: #1a73e8;
+}
+
+/* Dark theme styles */
+/* Global Styles (Fallback: Dark theme) */
+body {
+  background-color: #121212;
+  color: #e0e0e0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: Arial, sans-serif;
+}
+
+/* Light theme styles */
+body.light-theme {
+  background-color: #ffffff;
+  color: #121212;
+}
+
+body.light-theme .settings-container {
+  background-color: #f5f5f5;
+}
+
+body.light-theme .settings-sidebar {
+  background-color: #f0f0f0;
+  border-right: 1px solid #ccc;
+}
+
+body.light-theme .settings-content {
+  background-color: #fafafa;
+}
+
+body.light-theme .settings-button {
+  color: #121212;
+}
+
+body.light-theme .settings-button.active {
+  background-color: #ccc;
+  color: #1a73e8;
+}
+
+body.light-theme .profile-section,
+body.light-theme .appearance-section,
+body.light-theme .privacy-section {
+  background-color: #f9f9f9;
+  color: #121212;
+}
+
+/* Dark theme styles */
+body.dark-theme {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark-theme .settings-container {
+  background-color: #121212;
+}
+
+body.dark-theme .settings-sidebar {
+  background-color: #1f1f1f;
+  border-right: 1px solid #333;
+}
+
+body.dark-theme .settings-content {
+  background-color: #181818;
+}
+
+body.dark-theme .settings-button {
+  color: #e0e0e0;
+}
+
+body.dark-theme .settings-button.active {
+  background-color: #333;
+  color: #1a73e8;
+}
+
+body.dark-theme .profile-section,
+body.dark-theme .appearance-section,
+body.dark-theme .privacy-section {
+  background-color: #222;
+  color: #e0e0e0;
+}
+
+/* Buttons styling */
+button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #1665d8;
+}
+
+button:active {
+  background-color: #1a73e8;
+}
+
+/* Inputs styling */
+input,
+select {
+  padding: 12px;
+  border: 1px solid #444;
+  border-radius: 6px;
+  background-color: #333;
+  color: #e0e0e0;
+  font-size: 1rem;
+}
+
+input:focus,
+select:focus {
+  border-color: #1a73e8;
+}
+
+/* General layout styling */
+.settings-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.settings-sidebar {
+  width: 250px;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-button {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: transparent;
+  color: #e0e0e0;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.settings-button:hover {
+  background-color: #333;
+}
+
+.settings-button.active {
+  background-color: #333;
+  color: #1a73e8;
+  font-weight: bold;
+}
+
+.settings-content {
+  flex: 1;
+  padding: 40px;
+}
+
+.settings-content h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.profile-section,
+.appearance-section,
+.privacy-section {
+  background-color: #222;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .settings-container {
+    flex-direction: column;
+  }
+
+  .settings-sidebar {
+    width: 100%;
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 10px 0;
+  }
+
+  .settings-button {
+    flex: 1;
+    justify-content: center;
+    padding: 10px;
+  }
+
+  .settings-content {
+    padding: 20px;
+  }
+}
+
 .settings-container {
   display: flex;
   min-height: 100vh;
@@ -14,6 +242,7 @@
   padding-top: 20px;
   display: flex;
   flex-direction: column;
+  transition: width 0.3s ease; /* Smooth transition for sidebar */
 }
 
 .settings-button {
@@ -48,6 +277,7 @@
   padding: 40px;
   background-color: #181818;
   border-left: 1px solid #333;
+  overflow-y: auto; /* Allows scrolling if content exceeds the height */
 }
 
 .settings-content h2 {
@@ -56,9 +286,16 @@
   color: #ffffff;
 }
 
+/* Section styling */
 .profile-section,
 .appearance-section,
-.privacy-section {
+.privacy-section,
+.language-section,
+.accessibility-section,
+.system-section,
+.restore-section,
+.bot-section,
+.logout-section {
   background-color: #222;
   padding: 20px;
   border-radius: 8px;
@@ -69,21 +306,36 @@
 /* Form styling */
 .profile-section form,
 .appearance-section form,
-.privacy-section form {
+.privacy-section form,
+.language-section form,
+.accessibility-section form,
+.system-section form,
+.restore-section form,
+.bot-section form {
   display: flex;
   flex-direction: column;
 }
 
 .profile-section form label,
 .appearance-section form label,
-.privacy-section form label {
+.privacy-section form label,
+.language-section form label,
+.accessibility-section form label,
+.system-section form label,
+.restore-section form label,
+.bot-section form label {
   margin-bottom: 8px;
   color: #b0b0b0;
 }
 
 .profile-section form input,
 .appearance-section form input,
-.privacy-section form input {
+.privacy-section form input,
+.language-section form select,
+.accessibility-section form input,
+.system-section form input,
+.restore-section form input,
+.bot-section form input {
   padding: 12px;
   margin-bottom: 20px;
   border: 1px solid #444;
@@ -93,9 +345,16 @@
   font-size: 1rem;
 }
 
+/* Button styling */
 .profile-section form button,
 .appearance-section form button,
-.privacy-section form button {
+.privacy-section form button,
+.language-section form button,
+.accessibility-section form button,
+.system-section form button,
+.restore-section form button,
+.bot-section form button,
+.logout-section button {
   padding: 12px 20px;
   background-color: #1a73e8;
   color: #ffffff;
@@ -108,7 +367,13 @@
 
 .profile-section form button:hover,
 .appearance-section form button:hover,
-.privacy-section form button:hover {
+.privacy-section form button:hover,
+.language-section form button:hover,
+.accessibility-section form button:hover,
+.system-section form button:hover,
+.restore-section form button:hover,
+.bot-section form button:hover,
+.logout-section button:hover {
   background-color: #1665d8;
 }
 
@@ -133,5 +398,18 @@
 
   .settings-content {
     padding: 20px;
+  }
+
+  /* Optional collapse effect for sidebar on mobile */
+  .settings-sidebar.collapsed {
+    width: 60px; /* Adjust collapsed width */
+  }
+
+  .settings-button span {
+    display: none; /* Hide text on mobile */
+  }
+
+  .settings-sidebar.expanded .settings-button span {
+    display: inline-block; /* Show text when expanded */
   }
 }
