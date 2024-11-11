@@ -3,6 +3,25 @@
 @tailwind utilities;
 
 /* globals.css */
+:root {
+  --background-color: #121212;
+  --text-color: #ffffff;
+  --primary-color: #bb86fc;
+}
+
+/* Light theme variables */
+body.light-theme {
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --primary-color: #6200ee;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+
 .layout {
   display: flex;
   flex-direction: column;
