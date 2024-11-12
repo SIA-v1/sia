@@ -18,7 +18,9 @@ export default function RootLayout({ children }) {
           <header className="header">
             <Navbar />
           </header>
-          <main className="content">{children}</main>
+          <main className="content">
+          {children}
+          </main>
           <Footer />
         </AuthProvider>
       </body>
