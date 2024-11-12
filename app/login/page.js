@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { useAuth } from '../hooks/Authcontext';
+import './login.css';
 
 export default function Login() {
   const router = useRouter();
